@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.game",
+        "pk": 1,
+        "fields": {
+            "game_type": 1,
+            "title": "Pandemic",
+            "maker": "NPR",
+            "gamer": 1,
+            "number_of_players": 4,
+            "skill_level": 4
+        }
+    },
+        {
+        "model": "levelupapi.game",
+        "pk": 2,
+        "fields": {
+            "game_type": 1,
+            "title": "Settlers of Catan",
+            "maker": "ABC",
+            "gamer": 1,
+            "number_of_players": 4,
+            "skill_level": 4
+        }
+    }
+]
