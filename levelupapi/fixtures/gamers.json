@@ -3,7 +3,7 @@
         "model": "levelupapi.gamer",
         "pk": 1,
         "fields": {
-            "uid": 1,
+            "uid": "1",
             "bio": "Me"
         }
     }

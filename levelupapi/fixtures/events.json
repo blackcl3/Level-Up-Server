@@ -1,0 +1,24 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "description": "Game about a global pandemic",
+            "date": "2022-11-30",
+            "time": "7:30",
+            "organizer": 1
+        }
+    },
+        {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "game": 2,
+            "description": "Settlers of Catan",
+            "date": "2022-11-30",
+            "time": "6:30",
+            "organizer": 1        
+        }
+    }
+]
