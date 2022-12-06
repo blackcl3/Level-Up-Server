@@ -20,15 +20,18 @@ class EventView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def list(self, request):
-        """Handle GET requests for all events
+        """Handle GET requests to get all events
+
+        Returns:
+            Response -- JSON serialized list of events
         """
+
         events = Event.objects.all()
-        
-        game = request.query_params.get('game', None)
-        if game is not None:
-            events = events.filter(game_id=game)
-        
-        uid = request.query_params.get('uid', None)
+        event_game = request.query_params.get('game', None)
+        if event_game is not None:
+          events = events.filter(game=event_game)
+
+        uid = request.META['HTTP_AUTHORIZATION']
         gamer = Gamer.objects.get(uid=uid)
 
         for event in events:
@@ -36,7 +39,6 @@ class EventView(ViewSet):
             event.joined = len(EventGamer.objects.filter(
                 gamer=gamer, event=event)) > 0
 
-        
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
     
@@ -107,3 +109,4 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'game', 'description', 'date', 'time', 'organizer', 'joined')
+        depth: 1
